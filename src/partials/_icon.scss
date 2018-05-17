@@ -1,0 +1,21 @@
+.icon-nav {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.icon-form {
+    background: url('/assets/icons/form.svg') no-repeat center center / 30px;
+}
+
+.icon-doc {
+    background: url('/assets/icons/doc.svg') no-repeat center center / 30px;
+}
+
+.icon-view {
+    background: url('/assets/icons/eye.svg') no-repeat center center / contain;
+}
+
+.icon-delete {
+    background: url('/assets/icons/delete.svg') no-repeat center center / contain;
+}

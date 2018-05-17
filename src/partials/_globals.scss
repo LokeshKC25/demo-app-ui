@@ -1,0 +1,92 @@
+.flx-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flx-row-na {
+    display: flex;
+    flex-direction: row;
+}
+
+.flx-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flx-ac {
+    align-items: center;
+}
+
+.flx-jce {
+    justify-content: flex-end;
+}
+
+.flx-jc {
+    justify-content: center;
+}
+
+.flx-jsb {
+    justify-content: space-between;
+}
+
+.flx-jsa {
+    justify-content: space-around;
+}
+
+.f20 {
+    font-size: 20px;
+}
+.f14 {
+    font-size: 14px;
+}
+.f12 {
+    font-size: 12px;
+}
+
+.primary-color {
+    color: $primary-color;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.disable {
+    pointer-events:none;
+    opacity: 0.5;
+}
+
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.spinner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: url('assets/icons/spinner.svg') no-repeat center center / 100px;
+    background-color: rgba(0,0,0,0.4);
+}

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/reset-css/_reset.scss';
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css";
+@import './partials/_variables.scss';
+@import './partials/_globals.scss';
+@import './partials/_layout.scss';
+@import './partials/_icon.scss';
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background: $body-bg;
+}
