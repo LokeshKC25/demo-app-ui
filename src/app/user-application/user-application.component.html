@@ -3,19 +3,25 @@
     <span *ngIf="!user._id">New User</span>
     <span *ngIf="user._id">User Details</span>
   </div>
-  <form class="user-application-form" #userForm="ngForm">
+  <form class="user-application-form" #userForm="ngForm" [ngClass]="{'form-submitted' : formSubmitted}" (ngSubmit)="onSubmit(userForm.valid)">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label required">Name</label>
           <div class="col-sm-10">
-            <input type="text" [(ngModel)]="user.name" class="form-control" name="name" id="name" required>
+            <input type="text" [(ngModel)]="user.name" class="form-control" name="name" id="name" minlength="4" required>
+            <div *ngIf="formErrors.name" class="alert alert-danger">
+              {{ formErrors.name }}
+            </div>
           </div>
         </div>
         <div class="form-group row">
           <label for="fatherName" class="col-sm-2 col-form-label required">Father Name</label>
           <div class="col-sm-10">
-            <input type="text" [(ngModel)]="user.fatherName" class="form-control" name="fatherName" id="fatherName" required>
+            <input type="text" [(ngModel)]="user.fatherName" class="form-control" name="fatherName" id="fatherName" required minlength="4">
+            <div *ngIf="formErrors.fatherName" class="alert alert-danger">
+              {{ formErrors.fatherName }}
+            </div>
           </div>
         </div>
         <div class="form-group row">
@@ -29,12 +35,18 @@
                 <input type="radio" [(ngModel)]="user.gender" [value]="'female'" name="gender" required> Female
               </label>
             </div>
+            <div *ngIf="formErrors.gender" class="alert alert-danger">
+              {{ formErrors.gender }}
+            </div>
           </div>
         </div>
         <div class="form-group row">
           <label for="dob" class="col-sm-2 col-form-label required">DOB</label>
           <div class="col-sm-10">
             <input type="date" [ngModel]="user.dob | date:'yyyy-MM-dd'" (ngModelChange)="user.dob = $event" class="form-control" name="dob" id="dob" required>
+            <div *ngIf="formErrors.dob" class="alert alert-danger">
+              {{ formErrors.dob }}
+            </div>
           </div>
         </div>
       </div>
@@ -43,28 +55,37 @@
           <label for="address" class="col-sm-2 col-form-label required">Address</label>
           <div class="col-sm-10">
             <textarea [(ngModel)]="user.address" class="form-control" name="address" id="address" required></textarea>
+            <div *ngIf="formErrors.address" class="alert alert-danger">
+              {{ formErrors.address }}
+            </div>
           </div>
         </div>
         <div class="form-group row">
           <label for="email" class="col-sm-2 col-form-label required">Email-id</label>
           <div class="col-sm-10">
-            <input type="email" [(ngModel)]="user.email" class="form-control" name="email" id="email" required>
+            <input type="email" [(ngModel)]="user.email" class="form-control" name="email" id="email" required email>
+            <div *ngIf="formErrors.email" class="alert alert-danger">
+              {{ formErrors.email }}
+            </div>
           </div>
         </div>
         <div class="form-group row">
-          <label for="contactNo" class="col-sm-2 col-form-label required">Contact No</label>
+          <label for="mobile" class="col-sm-2 col-form-label required">Contact No</label>
           <div class="col-sm-10">
-            <input type="mobile" [(ngModel)]="user.mobile" class="form-control" name="contactNo" id="contactNo" required>
+            <input type="mobile" [(ngModel)]="user.mobile" class="form-control" name="mobile" id="mobile" required pattern="^[0-9]{10}$">
+            <div *ngIf="formErrors.mobile" class="alert alert-danger">
+              {{ formErrors.mobile }}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <button type="reset" class="btn btn-secondary btn-sm btn-block">Clear</button>
+        <button type="reset" class="btn btn-secondary btn-sm btn-block" (click)="clearFields()">Clear</button>
       </div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-primary btn-sm btn-block" (click)="onSubmit(userForm.valid)">Submit</button>
+        <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
       </div>
     </div>    
   </form>

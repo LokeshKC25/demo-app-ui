@@ -101,3 +101,12 @@
         left: 10px;
     }
 }
+
+.form-submitted {
+    .ng-invalid {
+        border-color: #B71C1C !important;
+        input {
+            border-color: #B71C1C !important;
+        }
+    }
+}
