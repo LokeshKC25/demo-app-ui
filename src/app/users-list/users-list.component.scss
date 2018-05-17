@@ -1,0 +1,29 @@
+.users-list {
+    overflow: hidden;
+    padding: 10px;
+    .page-title {
+        font-size: 18px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+    &-container {
+        padding: 10px 15px;
+    }
+    .user-row {
+        border: 1px solid #ddd;
+        border-bottom: none;
+        background: #fff;
+        &:last-child {
+            border-bottom: 1px solid #ddd;
+        }
+        .col {            
+            border-right: 1px solid #ddd;
+            box-sizing: border-box;
+            padding: 10px 5px;
+            min-height: 36px;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}

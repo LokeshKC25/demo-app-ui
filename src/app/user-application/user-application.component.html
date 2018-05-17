@@ -1,5 +1,8 @@
 <div class="user-application">
-  <div class="page-title">User Form</div>
+  <div class="page-title">
+    <span *ngIf="!user._id">New User</span>
+    <span *ngIf="user._id">User Details</span>
+  </div>
   <form class="user-application-form" #userForm="ngForm">
     <div class="row">
       <div class="col-md-6">

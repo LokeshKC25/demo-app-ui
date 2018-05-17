@@ -20,7 +20,7 @@ export class DataService {
     const vm = this;
     setTimeout(function () { vm.appService.spinnerData = true; }, 0);
     const headers = new Headers();
-    return this.http.get(AppSettings.api_endpoint + '/api' + path, { headers: headers })
+    return this.http.get(AppSettings.api_endpoint + path, { headers: headers })
       .map((res: Response) => {
         return vm.extractData(res, vm);
       })
@@ -33,7 +33,7 @@ export class DataService {
     const vm = this;
     setTimeout(function () { vm.appService.spinnerData = true; }, 0);
     const headers = new Headers();
-    return this.http.post(AppSettings.api_endpoint + '/api' + path, data, { headers: headers })
+    return this.http.post(AppSettings.api_endpoint + path, data, { headers: headers })
       .map((res: Response) => {
         return vm.extractData(res, vm);
       })

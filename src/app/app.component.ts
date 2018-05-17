@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,11 @@ export class AppComponent implements OnInit {
   private routeName: string;
 
   constructor(private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public toastr: ToastsManager,
+    public vcr: ViewContainerRef) {
       const vm = this;
+      vm.toastr.setRootViewContainerRef(vcr);
       vm.router.events.forEach((event) => {
         if (event instanceof NavigationEnd) {
           let currentRoute = this.route.root;
