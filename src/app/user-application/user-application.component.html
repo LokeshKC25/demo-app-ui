@@ -7,29 +7,54 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row">
-          <label for="name" class="col-sm-2 col-form-label">Name</label>
+          <label for="name" class="col-sm-2 col-form-label required">Name</label>
           <div class="col-sm-10">
-            <input type="text" [(ngModel)]="user.name" class="form-control" name="name" id="name">
+            <input type="text" [(ngModel)]="user.name" class="form-control" name="name" id="name" required>
           </div>
         </div>
         <div class="form-group row">
-          <label for="fatherName" class="col-sm-2 col-form-label">Father Name</label>
+          <label for="fatherName" class="col-sm-2 col-form-label required">Father Name</label>
           <div class="col-sm-10">
-            <input type="text" [(ngModel)]="user.fatherName" class="form-control" name="fatherName" id="fatherName">
+            <input type="text" [(ngModel)]="user.fatherName" class="form-control" name="fatherName" id="fatherName" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gender" class="col-sm-2 col-form-label required">Gender</label>
+          <div class="col-sm-10">
+            <div class="btn-group btn-group-toggle">
+              <label class="btn btn-secondary" [ngClass]="{'active': user.gender === 'male'}">
+                <input type="radio" [(ngModel)]="user.gender" [value]="'male'" name="gender" required> Male
+              </label>
+              <label class="btn btn-secondary" [ngClass]="{'active': user.gender === 'female'}">
+                <input type="radio" [(ngModel)]="user.gender" [value]="'female'" name="gender" required> Female
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dob" class="col-sm-2 col-form-label required">DOB</label>
+          <div class="col-sm-10">
+            <input type="date" [ngModel]="user.dob | date:'yyyy-MM-dd'" (ngModelChange)="user.dob = $event" class="form-control" name="dob" id="dob" required>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group row">
-          <label for="email" class="col-sm-2 col-form-label">Email-id</label>
+          <label for="address" class="col-sm-2 col-form-label required">Address</label>
           <div class="col-sm-10">
-            <input type="email" [(ngModel)]="user.email" class="form-control" name="email" id="email">
+            <textarea [(ngModel)]="user.address" class="form-control" name="address" id="address" required></textarea>
           </div>
         </div>
         <div class="form-group row">
-          <label for="contactNo" class="col-sm-2 col-form-label">Contact No</label>
+          <label for="email" class="col-sm-2 col-form-label required">Email-id</label>
           <div class="col-sm-10">
-            <input type="mobile" [(ngModel)]="user.mobile" class="form-control" name="contactNo" id="contactNo">
+            <input type="email" [(ngModel)]="user.email" class="form-control" name="email" id="email" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="contactNo" class="col-sm-2 col-form-label required">Contact No</label>
+          <div class="col-sm-10">
+            <input type="mobile" [(ngModel)]="user.mobile" class="form-control" name="contactNo" id="contactNo" required>
           </div>
         </div>
       </div>

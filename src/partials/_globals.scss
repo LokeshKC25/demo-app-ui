@@ -90,3 +90,14 @@
     background: url('assets/icons/spinner.svg') no-repeat center center / 100px;
     background-color: rgba(0,0,0,0.4);
 }
+
+.required {
+    position: relative;
+    &:after {
+        content: '*';
+        color: #B71C1C;
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+}
