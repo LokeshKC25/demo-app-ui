@@ -1,0 +1,12 @@
+.user-application {
+    overflow: hidden;
+    padding: 10px;
+    .page-title {
+        font-size: 18px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+    &-form {
+        padding-top: 10px;
+    }
+}

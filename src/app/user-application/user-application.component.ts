@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { UserModel } from './user.model';
 
 @Component({
   selector: 'app-user-application',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserApplicationComponent implements OnInit {
 
-  constructor() { }
+  private user: UserModel;
+
+  constructor(
+    private dataService: DataService,
+    public toastr: ToastsManager
+  ) { }
 
   ngOnInit() {
+    const vm = this;
+    vm.user = new UserModel();
+  }
+
+  onSubmit() {
+    const vm = this;
+    console.log(vm.user);
   }
 
 }
