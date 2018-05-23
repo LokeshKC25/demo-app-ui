@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     path: 'add-company',
     component: AddCompanyComponent,
     data: {
-      name: 'company'
+      name: 'add-company'
     }
   }
 ];

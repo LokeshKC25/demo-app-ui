@@ -35,6 +35,12 @@
       <div class="page-title">
         <span>Companies List</span>
       </div>
+      <div class="row company-info">
+        <div class="col-md-2 text-center">Id</div>
+        <div class="col-md-4">Name</div>
+        <div class="col-md-4">Location</div>
+        <div class="col-md-2 text-center">Eligibility</div>
+      </div>
       <div class="row company-info" *ngFor="let com of companies">
         <div class="col-md-2 text-center">{{com.id}}</div>
         <div class="col-md-4">{{com.name}}</div>

@@ -33,6 +33,7 @@ export class AddCompanyComponent implements OnInit {
     vm.dataService.postData('/company/add', vm.company).subscribe(response => {
       if (response && response.insertedCount > 0) {
         vm.companies.push(response.ops[0]);
+        vm.clearFields();
       }
     });
   }

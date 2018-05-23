@@ -38,12 +38,15 @@ export class LoginComponent implements OnInit {
       reqObj['userId'] = vm.username;
       reqObj['password'] = vm.password;
       vm.dataService.postData('/auth/login', reqObj).subscribe(response => {
-        console.log(response);
         if (response && response.error) {
           vm.toastr.error(response.message);
         } else {
           this.appService.userObj = response;
-          this.router.navigate(['/new-customer']);
+          if (response.isAdmin) {
+            this.router.navigate(['/add-company']);
+          } else {
+            this.router.navigate(['/student-company']);
+          }
         }
       }, error => {
         vm.toastr.error('Please contact admin, Serve issue');

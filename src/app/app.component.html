@@ -12,14 +12,18 @@
       <div class="flx-row">
         <div *ngIf="!user">Welcome Guest</div>
         <div *ngIf="user">Welcome {{user.name}}</div>
-        <div class="icon-lg icon-logout pointer" (click)="onLogout()" *ngIf="!isLogin"></div>
+        <div class="icon-nav icon-logout pointer" (click)="onLogout()" *ngIf="!isLogin"></div>
       </div>
     </div>
     <div class="view-wrap" [ngClass]="{'nav-expand': isExpand, 'not-login': isLogin}">
       <div class="left-navigation flx-column" [ngClass]="{'nav-expand': isExpand}" *ngIf="!isLogin">
-        <div class="nav-list flx-row pointer" [ngClass]="{'active': routeName === 'users-list'}" (click)="navigateTo('/users-list')">
+        <div class="nav-list flx-row pointer" *ngIf="isAdmin" [ngClass]="{'active': routeName === 'users-list'}" (click)="navigateTo('/users-list')">
           <div class="icon-nav icon-doc"></div>
           <div class="nav-title">User List</div>
+        </div>
+        <div class="nav-list flx-row pointer" *ngIf="isAdmin" [ngClass]="{'active': routeName === 'add-company'}" (click)="navigateTo('/add-company')">
+          <div class="icon-nav icon-doc"></div>
+          <div class="nav-title">Add Company</div>
         </div>
       </div>
       <div class="right-container">

@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           vm.isLogin = false;
           vm.user = vm.appService.userObj;
-          vm.isAdmin = vm.appService.userObj && vm.appService.userObj.admin;
+          vm.isAdmin = vm.appService.userObj && vm.appService.userObj.isAdmin;
           let currentRoute = this.route.root;
           if (currentRoute.children[0] !== undefined) {
             currentRoute = currentRoute.children[0];
