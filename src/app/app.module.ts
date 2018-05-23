@@ -17,6 +17,9 @@ import { DataService } from './services/data.service';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { StudentCompanyComponent } from './student-company/student-company.component';
 
+import { ChartModule } from 'angular-highcharts';
+import { ChartComponent } from './chart/chart.component';
+
 const appRoutes: Routes = [
   { path: '',
     redirectTo: '/login',
@@ -67,7 +70,8 @@ const appRoutes: Routes = [
     UserApplicationComponent,
     LoginComponent,
     AddCompanyComponent,
-    StudentCompanyComponent
+    StudentCompanyComponent,
+    ChartComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -76,7 +80,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     ToastModule.forRoot(),
-    HttpModule
+    HttpModule,
+    ChartModule
   ],
   providers: [
     AppService,
