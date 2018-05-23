@@ -29,14 +29,16 @@ export class UsersListComponent implements OnInit {
       if (response.error) {
         vm.toastr.error('Please contact Admin');
       } else if (response) {
-        vm.users = response;
+        vm.users = response.filter(res => {
+          return !res.isAdmin;
+        });
       }
     });
   }
 
   onView(user) {
     const vm = this;
-    vm.router.navigate(['/user', user._id]);
+    vm.router.navigate(['/student-info', user._id]);
   }
 
   onDelete(user) {

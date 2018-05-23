@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const vm = this;
     if (this.appService.userObj && this.appService.userObj.isAdmin) {
-      this.router.navigate(['/add-company']);
+      this.router.navigate(['/users-list']);
     } else if (this.appService.userObj) {
       this.router.navigate(['/student-company']);
     } else {
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.appService.userObj = response;
           if (response.isAdmin) {
-            this.router.navigate(['/add-company']);
+            this.router.navigate(['/users-list']);
           } else {
             this.router.navigate(['/student-company']);
           }

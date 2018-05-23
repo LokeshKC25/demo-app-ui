@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { StudentModel, CompanyStatusModel } from './student.model';
 import { DataService } from '../services/data.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { AppService } from '../app.service';
+import { UserModel } from '../user-application/user.model';
 
 @Component({
   selector: 'app-student-company',
@@ -12,15 +14,31 @@ import { AppService } from '../app.service';
 export class StudentCompanyComponent implements OnInit {
 
   private student: StudentModel = new StudentModel();
+  private isAdmin: Boolean = false;
+  private studentData: UserModel = new UserModel();
 
   constructor(private dataService: DataService,
     private toastr: ToastsManager,
-    private appService: AppService) { }
+    private appService: AppService,
+    private router: Router,
+    private route: ActivatedRoute) {
+      const vm = this;
+      this.route.params.subscribe(params => {
+        if (params.id) {
+          vm.student.userId = params.id;
+          vm.getStudent();
+          vm.getUser();
+        }
+      });
+    }
 
   ngOnInit() {
     const vm = this;
-    vm.student.userId = vm.appService.userObj._id;
-    vm.getStudent();
+    vm.isAdmin = vm.appService.userObj.isAdmin;
+    if (!vm.appService.userObj.isAdmin) {
+      vm.student.userId = vm.appService.userObj._id;
+      vm.getStudent();
+    }
   }
 
   getStudent() {
@@ -30,6 +48,15 @@ export class StudentCompanyComponent implements OnInit {
         vm.student = response;
       } else {
         vm.initLoad();
+      }
+    });
+  }
+
+  getUser() {
+    const vm = this;
+    vm.dataService.getData('/users/find/' + vm.student.userId).subscribe(response => {
+      if (response && !response.error) {
+        vm.studentData = response;
       }
     });
   }
@@ -59,7 +86,13 @@ export class StudentCompanyComponent implements OnInit {
     vm.dataService.postData(path, vm.student).subscribe(response => {
       if (response && response.insertedCount > 0) {
         vm.student = response.ops[0];
+        vm.toastr.success('U have update your interest, Thank you');
       } else if (response && response.value) {
+        if (vm.isAdmin) {
+          vm.toastr.success('Status Updated');
+        } else {
+          vm.toastr.success('U have update your interest, Thank you');
+        }
         vm.student = response.value;
       }
     });

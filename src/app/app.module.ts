@@ -51,6 +51,12 @@ const appRoutes: Routes = [
     data: {
       name: 'student-company'
     }
+  }, {
+    path: 'student-info/:id',
+    component: StudentCompanyComponent,
+    data: {
+      name: 'student-info'
+    }
   }
 ];
 
