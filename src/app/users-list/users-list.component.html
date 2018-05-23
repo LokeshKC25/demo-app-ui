@@ -1,19 +1,24 @@
 <div class="users-list">
   <div class="page-title">Student List</div>
   <div class="users-list-container">
-    <div class="row align-items-center user-row" *ngFor="let user of users; let i = index">
-      <div class="col col-sm-1 text-center">{{i+1}}</div>
-      <div class="col col-sm-2">{{user.name}}</div>
-      <div class="col col-sm-2">{{user.fatherName}}</div>
-      <div class="col col-sm-1 capitalize">{{user.gender}}</div>
-      <div class="col col-sm-1">{{user.dob}}</div>
-      <div class="col col-sm-2">{{user.email}}</div>
-      <div class="col col-sm-2">{{user.mobile}}</div>
-      <div class="col-sm-1">
-        <div class="flx-row flx-jsa">
-          <div class="icon-nav icon-view" (click)="onView(user)"></div>
-          <div class="icon-nav icon-delete" (click)="onDelete(user)"></div>
-        </div>        
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row align-items-center user-row" *ngFor="let user of users; let i = index">
+          <div class="col col-sm-1 text-center">{{i+1}}</div>
+          <div class="col col-sm-2">{{user.name}}</div>
+          <div class="col col-sm-2 capitalize">{{user.gender}}</div>
+          <div class="col col-sm-3">{{user.email}}</div>
+          <div class="col col-sm-3">{{user.mobile}}</div>
+          <div class="col-sm-1">
+            <div class="flx-row flx-jsa">
+              <div class="icon-nav icon-view" (click)="onView(user)"></div>
+              <div class="icon-nav icon-delete" (click)="onDelete(user)"></div>
+            </div>        
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <app-chart></app-chart>
       </div>
     </div>
   </div>

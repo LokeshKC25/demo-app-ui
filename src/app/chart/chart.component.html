@@ -1,1 +1,9 @@
+<div *ngIf="isAdmin">
+    <select [(ngModel)]="selectedType" class="form-control" (change)="onTypeChange()">
+        <option [value]="'applied'">Applied</option>
+        <option [value]="'pending'">Pending</option>
+        <option [value]="'approved'">Approved</option>
+        <option [value]="'rejected'">Rejected</option>
+    </select>
+</div>
 <div [chart]="chart"></div>

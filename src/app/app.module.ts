@@ -11,6 +11,7 @@ import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserApplicationComponent } from './user-application/user-application.component';
 import { LoginComponent } from './login/login.component';
+import { ChartComponent } from './chart/chart.component';
 
 import { AppService } from './app.service';
 import { DataService } from './services/data.service';
@@ -18,7 +19,6 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { StudentCompanyComponent } from './student-company/student-company.component';
 
 import { ChartModule } from 'angular-highcharts';
-import { ChartComponent } from './chart/chart.component';
 
 const appRoutes: Routes = [
   { path: '',
