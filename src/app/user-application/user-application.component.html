@@ -1,10 +1,10 @@
 <div class="user-application">
   <div class="page-title">
-    <span *ngIf="!user._id">New User</span>
+    <span *ngIf="!user._id">Registration</span>
     <span *ngIf="user._id">User Details</span>
   </div>
   <form class="user-application-form" #userForm="ngForm" [ngClass]="{'form-submitted' : formSubmitted}" (ngSubmit)="onSubmit(userForm.valid)">
-    <div class="row">
+    <div class="row flx-jc">
       <div class="col-md-6">
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label required">Name</label>
@@ -49,8 +49,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6">
         <div class="form-group row">
           <label for="address" class="col-sm-2 col-form-label required">Address</label>
           <div class="col-sm-10">
@@ -78,14 +76,14 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <button type="reset" class="btn btn-secondary btn-sm btn-block" (click)="clearFields()">Clear</button>
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-secondary btn-sm btn-block" (click)="clearFields()">Clear</button>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
+          </div>
+        </div>
       </div>
     </div>    
   </form>

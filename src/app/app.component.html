@@ -2,7 +2,7 @@
   <div>
     <div class="header-wrap flx-row flx-jsb">
       <div class="flx-row">
-        <button (click)="isExpand = !isExpand" [ngClass]="{'active': isExpand}">
+        <button (click)="isExpand = !isExpand" [ngClass]="{'active': isExpand}" *ngIf="!isLogin">
           <span></span>
           <span></span>
           <span></span>
@@ -10,15 +10,13 @@
         <div class="app-title f20 pointer" (click)="goHome()">Demo CRUD Operations</div>
       </div>
       <div class="flx-row">
-        <div>Welcome</div>
+        <div *ngIf="!user">Welcome Guest</div>
+        <div *ngIf="user">Welcome {{user.name}}</div>
+        <div class="icon-lg icon-logout pointer" (click)="onLogout()" *ngIf="!isLogin"></div>
       </div>
     </div>
-    <div class="view-wrap" [ngClass]="{'nav-expand': isExpand}">
-      <div class="left-navigation flx-column" [ngClass]="{'nav-expand': isExpand}">
-        <div class="nav-list flx-row pointer" [ngClass]="{'active': routeName === 'user'}" (click)="navigateTo('/user')">
-          <div class="icon-nav icon-doc"></div>
-          <div class="nav-title">New User</div>
-        </div>
+    <div class="view-wrap" [ngClass]="{'nav-expand': isExpand, 'not-login': isLogin}">
+      <div class="left-navigation flx-column" [ngClass]="{'nav-expand': isExpand}" *ngIf="!isLogin">
         <div class="nav-list flx-row pointer" [ngClass]="{'active': routeName === 'users-list'}" (click)="navigateTo('/users-list')">
           <div class="icon-nav icon-doc"></div>
           <div class="nav-title">User List</div>

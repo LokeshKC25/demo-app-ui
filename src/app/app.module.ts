@@ -10,13 +10,14 @@ import { AppComponent } from './app.component';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserApplicationComponent } from './user-application/user-application.component';
+import { LoginComponent } from './login/login.component';
 
 import { AppService } from './app.service';
 import { DataService } from './services/data.service';
 
 const appRoutes: Routes = [
   { path: '',
-    redirectTo: '/users-list',
+    redirectTo: '/login',
     pathMatch: 'full'
   }, {
     path: 'users-list',
@@ -25,16 +26,16 @@ const appRoutes: Routes = [
       name: 'users-list'
     }
   }, {
-    path: 'user',
+    path: 'registration',
     component: UserApplicationComponent,
     data: {
-      name: 'user'
+      name: 'registration'
     }
   }, {
-    path: 'user/:id',
-    component: UserApplicationComponent,
+    path: 'login',
+    component: LoginComponent,
     data: {
-      name: 'user'
+      name: 'login'
     }
   }
 ];
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UsersListComponent,
-    UserApplicationComponent
+    UserApplicationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,

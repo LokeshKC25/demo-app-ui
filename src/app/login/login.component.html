@@ -1,0 +1,23 @@
+<div class="view-container login-container">
+  <div class="login-form-wrap flx-column flx-jc flx-ac">
+    <form #loginForm="ngForm" class="login-form" (ngSubmit)="onLogin(loginForm.valid)" [ngClass]="{'form-submitted' : formSubmitted}">
+      <div class="form-group">
+        <label>Username (your email-id)</label>
+        <input type="text" placeholder="Username" name="name" class="form-control" [(ngModel)]="username" required email>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="password" class="form-control" [(ngModel)]="password" required>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button type="reset" class="btn btn-secondary btn-sm btn-block" (click)="clearFields()">Clear</button>
+        </div>
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-primary btn-sm btn-block">Login</button>
+        </div>
+      </div>
+    </form>
+    <div class="f12 pointer hyper-link" (click)="onSignUp()">Sign Up (click here for registration)</div>
+  </div>
+</div>
