@@ -12,7 +12,7 @@
         <div class="col-md-2 pl20">Interest</div>
         <div class="col-md-3">Status</div>
       </div>
-      <div class="flx-row info-row" *ngFor="let company of student.companies">
+      <div class="flx-row info-row" *ngFor="let company of student.companies; let i = index">
         <div class="col-md-1">{{company.id}}</div>
         <div class="col-md-3">{{company.name}}</div>
         <div class="col-md-2">{{company.location}}</div>
@@ -20,16 +20,16 @@
         <div class="col-md-2">
           <div class="btn-group btn-group-toggle" [ngClass]="{'disable' : company.status || isAdmin}">
             <label class="btn btn-secondary" [ngClass]="{'active': company.applied}">
-              <input type="radio" [(ngModel)]="company.applied" [value]="true" name="applied"> Apply
+              <input type="radio" [(ngModel)]="company.applied" [value]="true" name="applied_{{i+1}}"> Apply
             </label>
             <label class="btn btn-secondary" [ngClass]="{'active': !company.applied}">
-              <input type="radio" [(ngModel)]="company.applied" [value]="false" name="applied"> No
+              <input type="radio" [(ngModel)]="company.applied" [value]="false" name="applied_{{i+1}}"> No
             </label>
           </div>
         </div>
         <div class="col-md-3 capitalize" *ngIf="!isAdmin">{{company.status}}</div>
         <div class="col-md-3" *ngIf="isAdmin && company.applied">
-          <select [(ngModel)]="company.status" class="form-control">
+          <select [(ngModel)]="company.status" class="form-control" name="status_{{i+1}}">
             <option [value]="'pending'">Pending</option>
             <option [value]="'approved'">Approved</option>
             <option [value]="'rejected'">Rejected</option>
