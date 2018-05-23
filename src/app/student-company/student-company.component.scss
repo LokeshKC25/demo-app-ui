@@ -5,5 +5,16 @@
         font-size: 18px;
         border-bottom: 1px solid #ddd;
         padding-bottom: 5px;
+    }    
+    .info-row {
+        border: 1px solid #ddd;
+        border-bottom: none;
+        padding: 10px 0;
+        &:last-child {
+            border-bottom: 1px solid #ddd;
+        }
+    }
+    .col-md-6 {
+        padding-top: 10px;
     }
 }

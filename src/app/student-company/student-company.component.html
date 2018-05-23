@@ -2,4 +2,43 @@
   <div class="page-title">
     <span>Company list and status</span>
   </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="flx-row info-row">
+        <div class="col-md-1">Id</div>
+        <div class="col-md-3">Name</div>
+        <div class="col-md-3">Location</div>
+        <div class="col-md-1">Eligibility</div>
+        <div class="col-md-2">Interest</div>
+        <div class="col-md-2 text-center">Status</div>
+      </div>
+      <div class="flx-row info-row" *ngFor="let company of student.companies">
+        <div class="col-md-1">{{company.id}}</div>
+        <div class="col-md-3">{{company.name}}</div>
+        <div class="col-md-3">{{company.location}}</div>
+        <div class="col-md-1">{{company.eligibility}}</div>
+        <div class="row col-md-2">
+          <div class="col-sm-10">
+            <div class="btn-group btn-group-toggle">
+              <label class="btn btn-secondary" [ngClass]="{'active': company.applied}">
+                <input type="radio" [(ngModel)]="company.applied" [value]="true" name="gender"> Applied
+              </label>
+              <label class="btn btn-secondary" [ngClass]="{'active': !company.applied}">
+                <input type="radio" [(ngModel)]="company.applied" [value]="false" name="gender"> No
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 text-right">{{company.status}}</div>
+      </div>
+      <div class="row flx-jce">
+        <div class="col-md-6">
+          <button class="btn btn-primary btn-sm btn-block" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
 </div>
