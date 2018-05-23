@@ -22,6 +22,14 @@ export class LoginComponent implements OnInit {
     public toastr: ToastsManager) { }
 
   ngOnInit() {
+    const vm = this;
+    if (this.appService.userObj && this.appService.userObj.isAdmin) {
+      this.router.navigate(['/add-company']);
+    } else if (this.appService.userObj) {
+      this.router.navigate(['/student-company']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   clearFields() {

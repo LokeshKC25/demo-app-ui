@@ -15,8 +15,8 @@
         <div class="icon-nav icon-logout pointer" (click)="onLogout()" *ngIf="!isLogin"></div>
       </div>
     </div>
-    <div class="view-wrap" [ngClass]="{'nav-expand': isExpand, 'not-login': isLogin}">
-      <div class="left-navigation flx-column" [ngClass]="{'nav-expand': isExpand}" *ngIf="!isLogin">
+    <div class="view-wrap" [ngClass]="{'nav-expand': isExpand, 'not-login': !isAdmin}">
+      <div class="left-navigation flx-column" [ngClass]="{'nav-expand': isExpand}" *ngIf="isAdmin">
         <div class="nav-list flx-row pointer" *ngIf="isAdmin" [ngClass]="{'active': routeName === 'users-list'}" (click)="navigateTo('/users-list')">
           <div class="icon-nav icon-doc"></div>
           <div class="nav-title">User List</div>
