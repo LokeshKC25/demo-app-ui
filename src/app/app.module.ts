@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AppService } from './app.service';
 import { DataService } from './services/data.service';
+import { AddCompanyComponent } from './add-company/add-company.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -37,6 +38,12 @@ const appRoutes: Routes = [
     data: {
       name: 'login'
     }
+  }, {
+    path: 'add-company',
+    component: AddCompanyComponent,
+    data: {
+      name: 'company'
+    }
   }
 ];
 
@@ -45,7 +52,8 @@ const appRoutes: Routes = [
     AppComponent,
     UsersListComponent,
     UserApplicationComponent,
-    LoginComponent
+    LoginComponent,
+    AddCompanyComponent
   ],
   imports: [
     BrowserAnimationsModule,

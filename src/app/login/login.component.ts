@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       reqObj['userId'] = vm.username;
       reqObj['password'] = vm.password;
       vm.dataService.postData('/auth/login', reqObj).subscribe(response => {
+        console.log(response);
         if (response && response.error) {
           vm.toastr.error(response.message);
         } else {

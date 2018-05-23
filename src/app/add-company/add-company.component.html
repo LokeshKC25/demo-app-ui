@@ -1,0 +1,46 @@
+<div class="company-wrap">
+  <div class="page-title">
+    <span>Add Company</span>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <form class="company-wrap-form" #companyForm="ngForm" [ngClass]="{'form-submitted' : formSubmitted}" (ngSubmit)="onSubmit(companyForm.valid)">
+        <div class="form-group">
+          <label>Company Id</label>
+          <input type="text" name="cid" class="form-control" [(ngModel)]="company.id" required>
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" name="cname" class="form-control" [(ngModel)]="company.name" required>
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" name="location" class="form-control" [(ngModel)]="company.location" required>
+        </div>
+        <div class="form-group">
+          <label>Eligibility (%)</label>
+          <input type="text" name="eligibility" class="form-control" [(ngModel)]="company.eligibility" required>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-secondary btn-sm btn-block" (click)="clearFields()">Clear</button>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 companies-list">
+      <div class="page-title">
+        <span>Companies List</span>
+      </div>
+      <div class="row company-info" *ngFor="let com of companies">
+        <div class="col-md-2 text-center">{{com.id}}</div>
+        <div class="col-md-4">{{com.name}}</div>
+        <div class="col-md-4">{{com.location}}</div>
+        <div class="col-md-2 text-center">{{com.eligibility}}</div>
+      </div>
+    </div>
+  </div>
+</div>

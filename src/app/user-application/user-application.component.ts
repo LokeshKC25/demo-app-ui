@@ -135,7 +135,7 @@ export class UserApplicationComponent implements OnInit, AfterViewChecked {
   onSubmit(flag) {
     const vm = this;
     const path = vm.user._id ? '/users/update' : '/users/add' ;
-    const msg = vm.user._id ? 'User updated successfully' : 'User added successfully';
+    const msg = vm.user._id ? 'User updated successfully' : 'User added successfully, please login';
     vm.formSubmitted = true;
     if (!flag) {
       vm.toastr.error('Please fill all the mandatory fields');
@@ -143,13 +143,9 @@ export class UserApplicationComponent implements OnInit, AfterViewChecked {
       vm.dataService.postData(path, vm.user).subscribe(response => {
         if (response.error) {
           vm.toastr.error('User adding failed');
-        } else if (response && response.value) {
-          vm.toastr.success(msg);
-          vm.user = response.value;
-          vm.formSubmitted = false;
         } else if (response && response.insertedCount > 0) {
           vm.toastr.success(msg);
-          vm.clearFields();
+          vm.router.navigate(['/login']);
         }
       });
     }
